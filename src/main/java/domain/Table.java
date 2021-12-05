@@ -35,4 +35,24 @@ public class Table {
 		}
 		return orderedMenu.get(menu) + plusAmount <= MAX_TABLE_MENU_AMOUNT;
 	}
+
+	public StringBuilder getOrderString() {
+		StringBuilder orderString = new StringBuilder();
+		for (Menu menu : orderedMenu.keySet()) {
+			orderString.append(menu.getName()).append(SPACE);
+			orderString.append(orderedMenu.get(menu)).append(SPACE);
+			orderString.append(menu.getPrice() * orderedMenu.get(menu));
+			orderString.append('\n');
+		}
+		return orderString;
+	}
+
+	public Integer getPrice() {
+		int price = 0;
+		for (Menu menu : orderedMenu.keySet()) {
+			price += menu.getPrice() * orderedMenu.get(menu);
+		}
+		return price;
+	}
+
 }

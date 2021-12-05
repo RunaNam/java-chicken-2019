@@ -13,12 +13,20 @@ public class Menu {
 		this.price = price;
 	}
 
-    @Override
-    public String toString() {
-        return category + " " + number + " - " + name + " : " + price + "원";
-    }
+	@Override
+	public String toString() {
+		return category + " " + number + " - " + name + " : " + price + "원";
+	}
 
 	public boolean hasCheckNumber(int tmpMenuNumber) {
 		return tmpMenuNumber == number;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getPrice() {
+		return price;
 	}
 }

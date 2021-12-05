@@ -26,6 +26,7 @@ public class ChickenOrderController {
 		selectTableNumber();
 		OutputView.printMenus(menus);
 		selectMenu();
+		adjustValues();
 		Integer menuAmount = selectMenuAmount();
 		addMenuAmount(menuAmount);
 	}
@@ -51,6 +52,18 @@ public class ChickenOrderController {
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e.getMessage());
 			selectMenu();
+		}
+	}
+
+	private void adjustValues() {
+		if (tableNumber > 5) {
+			tableNumber -= 1;
+		}
+		if (tableNumber >= 7) {
+			tableNumber -= 1;
+		}
+		if (menuNumber >= 21) {
+			menuNumber -= 14;
 		}
 	}
 

@@ -49,11 +49,8 @@ public class ChickenShopController {
 			chickenOrderController.registerOrder();
 		}
 		if (featureNumber == 2) {
-			payPrice();
+			ChickenPayController chickenPayController = new ChickenPayController(tables);
+			chickenPayController.paymentProgress();
 		}
-	}
-
-
-	private void payPrice() {
 	}
 }

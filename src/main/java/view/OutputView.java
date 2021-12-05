@@ -54,4 +54,10 @@ public class OutputView {
 	public static void printError(String errorMessage) {
 		System.out.println(ERROR_PREFIX + errorMessage);
 	}
+
+	public static void printOrderList(Table table) {
+		System.out.println(ORDER_LIST_HEADING);
+		System.out.println(ORDER_LIST_INFO);
+		System.out.println(table.getOrderString());
+	}
 }
