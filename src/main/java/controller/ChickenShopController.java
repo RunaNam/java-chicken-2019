@@ -18,8 +18,6 @@ public class ChickenShopController {
 	final List<Table> tables = TableRepository.tables();
 	final List<Menu> menus = MenuRepository.menus();
 	private Integer featureNumber;
-	private Integer tableNumber;
-	private Integer menuNumber;
 
 	public void run() {
 		do {
@@ -47,63 +45,14 @@ public class ChickenShopController {
 
 	private void executeFeature() {
 		if (featureNumber == 1) {
-			registerOrder();
+			ChickenOrderController chickenOrderController = new ChickenOrderController(tables, menus);
+			chickenOrderController.registerOrder();
 		}
 		if (featureNumber == 2) {
 			payPrice();
 		}
 	}
 
-	private void registerOrder() {
-		OutputView.printTables(tables);
-		selectTableNumber();
-		OutputView.printMenus(menus);
-		selectMenu();
-		Integer menuAmount = selectMenuAmount();
-		addMenuAmount(menuAmount);
-	}
-
-	private void selectTableNumber() {
-		InputView.inputTableNumber();
-		String tmpTableNumber = Console.readLine();
-		try {
-			TableNumberValidator.TableNumberCheck(tmpTableNumber, tables);
-			tableNumber = Integer.parseInt(tmpTableNumber);
-		} catch (IllegalArgumentException e) {
-			OutputView.printError(e.getMessage());
-			selectTableNumber();
-		}
-	}
-
-	private void selectMenu() {
-		InputView.inputMenu();
-		String tmpMenuNumber = Console.readLine();
-		try {
-			MenuValidator.MenuNumberCheck(tmpMenuNumber, menus);
-			menuNumber = Integer.parseInt(tmpMenuNumber);
-		} catch (IllegalArgumentException e) {
-			OutputView.printError(e.getMessage());
-			selectMenu();
-		}
-	}
-
-	private Integer selectMenuAmount() {
-		Integer menuAmount = 0;
-		while (true) {
-			menuAmount = InputView.inputMenuAmount();
-			try {
-				MenuValidator.MenuAmountCheck(menuAmount, tables.get(tableNumber - 1), menus.get(menuNumber - 1));
-				break;
-			} catch (IllegalArgumentException e) {
-				OutputView.printError(e.getMessage());
-			}
-		}
-		return menuAmount;
-	}
-
-	private void addMenuAmount(Integer menuAmount) {
-		tables.get(tableNumber - 1).addOrderedMenu(menus.get(menuNumber - 1), menuAmount);
-	}
 
 	private void payPrice() {
 	}
