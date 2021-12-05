@@ -7,9 +7,10 @@ public class ChickenShopConstants {
 	public final static String MAIN_SCREEN_EXIT = "3 - 프로그램 종료";
 	public final static String TABLE_LIST_HEADING = "## 테이블 목록";
 
-
 	public final static String ERROR_PREFIX = "[ERROR] ";
 	public final static String ERROR_FEATURE_NUM_WRONG_NUM = "기능은 1, 2, 3중에 선택해야 한다.";
 	public final static String ERROR_FEATURE_NUM_NOT_NUMBER = "기능은 숫자여야 한다.";
 
+	public final static String ERROR_TABLE_NUM_NOT_NUMBER = "테이블 번호는 숫자여야 한다.";
+	public final static String ERROR_TABLE_NUM_WRONG_RANGE = "테이블 리스트 내의 번호를 선택해야 한다.";
 }

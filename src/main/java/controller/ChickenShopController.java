@@ -7,12 +7,14 @@ import camp.nextstep.edu.missionutils.Console;
 import domain.Table;
 import domain.TableRepository;
 import validator.FeatureNumberValidator;
+import validator.TableNumberValidator;
 import view.InputView;
 import view.OutputView;
 
 public class ChickenShopController {
 	final List<Table> tables = TableRepository.tables();
-	Integer featureNumber;
+	private Integer featureNumber;
+	private Integer tableNumber;
 
 	public void run() {
 		do {
@@ -49,6 +51,19 @@ public class ChickenShopController {
 
 	private void registerOrder() {
 		OutputView.printTables(tables);
+		selectTableNumber();
+	}
+
+	private void selectTableNumber() {
+		InputView.inputTableNumber();
+		String tmpTableNumber = Console.readLine();
+		try {
+			TableNumberValidator.TableNumberCheck(tmpTableNumber, tables);
+			tableNumber = Integer.parseInt(tmpTableNumber);
+		} catch (IllegalArgumentException e) {
+			OutputView.printError(e.getMessage());
+			selectTableNumber();
+		}
 	}
 
 	private void payPrice() {
