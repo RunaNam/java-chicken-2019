@@ -9,7 +9,7 @@ import domain.MenuRepository;
 import domain.Table;
 import domain.TableRepository;
 import validator.FeatureNumberValidator;
-import validator.MenuNumberValidator;
+import validator.MenuValidator;
 import validator.TableNumberValidator;
 import view.InputView;
 import view.OutputView;
@@ -59,6 +59,8 @@ public class ChickenShopController {
 		selectTableNumber();
 		OutputView.printMenus(menus);
 		selectMenu();
+		Integer menuAmount = selectMenuAmount();
+		addMenuAmount(menuAmount);
 	}
 
 	private void selectTableNumber() {
@@ -77,12 +79,30 @@ public class ChickenShopController {
 		InputView.inputMenu();
 		String tmpMenuNumber = Console.readLine();
 		try {
-			MenuNumberValidator.MenuNumberCheck(tmpMenuNumber, menus);
+			MenuValidator.MenuNumberCheck(tmpMenuNumber, menus);
 			menuNumber = Integer.parseInt(tmpMenuNumber);
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e.getMessage());
 			selectMenu();
 		}
+	}
+
+	private Integer selectMenuAmount() {
+		Integer menuAmount = 0;
+		while (true) {
+			menuAmount = InputView.inputMenuAmount();
+			try {
+				MenuValidator.MenuAmountCheck(menuAmount, tables.get(tableNumber - 1), menus.get(menuNumber - 1));
+				break;
+			} catch (IllegalArgumentException e) {
+				OutputView.printError(e.getMessage());
+			}
+		}
+		return menuAmount;
+	}
+
+	private void addMenuAmount(Integer menuAmount) {
+		tables.get(tableNumber - 1).addOrderedMenu(menus.get(menuNumber - 1), menuAmount);
 	}
 
 	private void payPrice() {

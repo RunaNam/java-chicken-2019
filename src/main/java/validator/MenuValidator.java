@@ -7,7 +7,7 @@ import java.util.List;
 import domain.Menu;
 import domain.Table;
 
-public class MenuNumberValidator {
+public class MenuValidator {
 	public static void MenuNumberCheck(String menuNumber, List<Menu> menus) {
 		isDigit(menuNumber);
 		isRightNumber(menuNumber, menus);
@@ -29,5 +29,11 @@ public class MenuNumberValidator {
 			}
 		}
 		throw new IllegalArgumentException(ERROR_MENU_WRONG_RANGE);
+	}
+
+	public static void MenuAmountCheck(Integer menuAmount, Table table, Menu menu) {
+		if (!table.checkAvailability(menu, menuAmount)) {
+			throw new IllegalArgumentException(ERROR_OVER_MAX_MENU_AMOUNT);
+		}
 	}
 }
