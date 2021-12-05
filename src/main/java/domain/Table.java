@@ -49,10 +49,14 @@ public class Table {
 
 	public Integer getPrice() {
 		int price = 0;
+		int chickenCount = 0;
 		for (Menu menu : orderedMenu.keySet()) {
 			price += menu.getPrice() * orderedMenu.get(menu);
+			if (menu.isChicken()) {
+				chickenCount += orderedMenu.get(menu);
+			}
 		}
-		return price;
+		return price - (chickenCount / 10) * CHICKEN_DISCOUNT_PRICE;
 	}
 
 }

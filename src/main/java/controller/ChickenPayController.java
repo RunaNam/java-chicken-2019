@@ -1,10 +1,11 @@
 package controller;
 
+import static constants.ChickenShopConstants.*;
+
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.Table;
-import jdk.internal.util.xml.impl.Input;
 import validator.PaymentMethodValidator;
 import validator.TableNumberValidator;
 import view.InputView;
@@ -28,6 +29,7 @@ public class ChickenPayController {
 		selectPaymentMethod();
 		System.out.println(paymentMethod);
 		countPrice();
+		OutputView.printPrice(price);
 	}
 
 	private void selectPaymentMethod() {
@@ -42,6 +44,9 @@ public class ChickenPayController {
 
 	private void countPrice() {
 		price = tables.get(tableNumber - 1).getPrice();
+		if (paymentMethod == 2) {
+			price -= price * CASH_DISCOUNT_NUMERATOR / CASH_DISCOUNT_DENOMINATOR;
+		}
 	}
 
 	private void selectTableNumber() {

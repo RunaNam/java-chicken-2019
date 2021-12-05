@@ -60,4 +60,10 @@ public class OutputView {
 		System.out.println(ORDER_LIST_INFO);
 		System.out.println(table.getOrderString());
 	}
+
+	public static void printPrice(Integer price) {
+		System.out.println(FINAL_PAYMENT_PRICE);
+		System.out.println(price + KOREA_MONETARY_UNIT);
+		System.out.println();
+	}
 }

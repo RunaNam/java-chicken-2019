@@ -12,6 +12,8 @@ public class ChickenShopConstants {
 	public final static String ORDER_LIST_HEADING = "## 주문 내역";
 	public final static String ORDER_LIST_INFO = "메뉴 수량 금액";
 	public final static String PAYMENT_MESSAGE = "번 테이블의 결제를 진행합니다.";
+	public final static String FINAL_PAYMENT_PRICE = "## 최종 결제할 금액";
+	public final static String KOREA_MONETARY_UNIT = "원";
 
 	public final static String ERROR_PREFIX = "[ERROR] ";
 	public final static String ERROR_FEATURE_NUM_WRONG_NUM = "기능은 1, 2, 3중에 선택해야 한다.";
@@ -31,5 +33,8 @@ public class ChickenShopConstants {
 	public final static String INPUT_PAYMENT_METHOD = "## 신용 카드는 1번, 현금은 2번";
 
 	public final static Integer MAX_TABLE_MENU_AMOUNT = 99;
+	public final static Integer CHICKEN_DISCOUNT_PRICE = 10000;
+	public final static Integer CASH_DISCOUNT_NUMERATOR = 5;
+	public final static Integer CASH_DISCOUNT_DENOMINATOR = 100;
 
 }
