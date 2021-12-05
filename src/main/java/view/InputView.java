@@ -5,11 +5,11 @@ import static constants.ChickenShopConstants.*;
 public class InputView {
 
 	public static void inputFeatureNumber() {
-		System.out.println("## 주문할 테이블을 선택하세요.");
+		System.out.println(INPUT_MESSAGE_FEATURE_NUM);
 	}
 
 	public static void inputTableNumber() {
-		System.out.println("## 주문할 테이블을 선택하세요.");
+		System.out.println(INPUT_MESSAGE_TABLE_NUM);
 	}
 
 	public static void inputMenu() {

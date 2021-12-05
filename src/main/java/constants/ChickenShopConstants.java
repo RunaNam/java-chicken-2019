@@ -15,5 +15,7 @@ public class ChickenShopConstants {
 	public final static String ERROR_MENU_NOT_NUMBER = "메뉴 번호는 숫자여야 한다.";
 	public final static String ERROR_MENU_WRONG_RANGE = "메뉴 리스트 내의 번호를 선택해야 한다.";
 
+	public final static String INPUT_MESSAGE_FEATURE_NUM = "## 원하는 기능을 선택하세요.";
 	public final static String INPUT_MESSAGE_MENU_NUM = "## 등록할 메뉴를 선택하세요.";
+	public final static String INPUT_MESSAGE_TABLE_NUM = "## 테이블을 선택하세요.";
 }
