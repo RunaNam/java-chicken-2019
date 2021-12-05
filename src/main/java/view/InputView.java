@@ -32,4 +32,21 @@ public class InputView {
 			}
 		}
 	}
+
+	public static Integer inputPaymentMethod(int tableNumber) {
+		System.out.println(INFO_PREFIX + tableNumber + PAYMENT_MESSAGE);
+		System.out.println(INPUT_PAYMENT_METHOD);
+		int paymentMethod = 0;
+		while (true) {
+			System.out.println(INPUT_MESSAGE_MENU_AMOUNT);
+			String tmpMenuAmount = Console.readLine();
+			try {
+				paymentMethod = Integer.parseInt(tmpMenuAmount);
+				return paymentMethod;
+			} catch (NumberFormatException e) {
+				OutputView.printError(ERROR_MENU_AMOUNT_NOT_NUMBER);
+			}
+		}
+
+	}
 }
