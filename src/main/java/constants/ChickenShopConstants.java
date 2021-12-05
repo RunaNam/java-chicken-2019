@@ -10,7 +10,10 @@ public class ChickenShopConstants {
 	public final static String ERROR_PREFIX = "[ERROR] ";
 	public final static String ERROR_FEATURE_NUM_WRONG_NUM = "기능은 1, 2, 3중에 선택해야 한다.";
 	public final static String ERROR_FEATURE_NUM_NOT_NUMBER = "기능은 숫자여야 한다.";
-
 	public final static String ERROR_TABLE_NUM_NOT_NUMBER = "테이블 번호는 숫자여야 한다.";
 	public final static String ERROR_TABLE_NUM_WRONG_RANGE = "테이블 리스트 내의 번호를 선택해야 한다.";
+	public final static String ERROR_MENU_NOT_NUMBER = "메뉴 번호는 숫자여야 한다.";
+	public final static String ERROR_MENU_WRONG_RANGE = "메뉴 리스트 내의 번호를 선택해야 한다.";
+
+	public final static String INPUT_MESSAGE_MENU_NUM = "## 등록할 메뉴를 선택하세요.";
 }

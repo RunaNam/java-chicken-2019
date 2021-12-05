@@ -9,6 +9,7 @@ import domain.MenuRepository;
 import domain.Table;
 import domain.TableRepository;
 import validator.FeatureNumberValidator;
+import validator.MenuNumberValidator;
 import validator.TableNumberValidator;
 import view.InputView;
 import view.OutputView;
@@ -18,6 +19,7 @@ public class ChickenShopController {
 	final List<Menu> menus = MenuRepository.menus();
 	private Integer featureNumber;
 	private Integer tableNumber;
+	private Integer menuNumber;
 
 	public void run() {
 		do {
@@ -56,6 +58,7 @@ public class ChickenShopController {
 		OutputView.printTables(tables);
 		selectTableNumber();
 		OutputView.printMenus(menus);
+		selectMenu();
 	}
 
 	private void selectTableNumber() {
@@ -67,6 +70,18 @@ public class ChickenShopController {
 		} catch (IllegalArgumentException e) {
 			OutputView.printError(e.getMessage());
 			selectTableNumber();
+		}
+	}
+
+	private void selectMenu() {
+		InputView.inputMenu();
+		String tmpMenuNumber = Console.readLine();
+		try {
+			MenuNumberValidator.MenuNumberCheck(tmpMenuNumber, menus);
+			menuNumber = Integer.parseInt(tmpMenuNumber);
+		} catch (IllegalArgumentException e) {
+			OutputView.printError(e.getMessage());
+			selectMenu();
 		}
 	}
 
