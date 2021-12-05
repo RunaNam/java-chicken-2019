@@ -22,11 +22,12 @@ public class OutputView {
 	}
 
 	public static void printTables(final List<Table> tables) {
-		System.out.println("## 테이블 목록");
+		System.out.println(TABLE_LIST_HEADING);
 		final int size = tables.size();
 		printLine(TOP_LINE, size);
 		printTableNumbers(tables);
 		printLine(BOTTOM_LINE, size);
+		System.out.println();
 	}
 
 	public static void printMenus(final List<Menu> menus) {

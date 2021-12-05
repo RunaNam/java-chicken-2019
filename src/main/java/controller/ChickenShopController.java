@@ -48,6 +48,7 @@ public class ChickenShopController {
 	}
 
 	private void registerOrder() {
+		OutputView.printTables(tables);
 	}
 
 	private void payPrice() {
